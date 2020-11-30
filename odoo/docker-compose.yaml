@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  web:
+    image: odoo:13
+    depends_on:
+      - postgres
+    ports:
+      - 8069:8069
+    environment:
+      - HOST=odoo_postgres
+      - USER=odoo
+      - PASSWORD=p@ssw0rd
+  postgres:
+    container_name: odoo_postgres
+    image: postgres:10
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=p@ssw0rd
+    volumes:
+      - /var/tmp/odoo/data/postgres:/var/lib/postgresql/data
+    external_links: 
+      - vow_web
+
+
+networks:
+  default:
+    external:
+      name: rocket-net

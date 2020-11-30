@@ -1,2 +1,5 @@
-# rocket.chat.crm
-integration of rocket chat with a CRM
+# rocket-crm
+
+# vow
+* Demo Username: demo@vow.com
+* Demo Password: password
